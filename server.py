@@ -12,9 +12,10 @@ Notepad files written automatically:
 
 from flask import Flask, request, jsonify, send_from_directory, Response, stream_with_context
 from flask_cors import CORS
-import json, os, datetime, threading, queue, time
+import json, os, datetime, threading, queue, time, sys
 
-app = Flask(__name__, static_folder=".")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+app = Flask(__name__, static_folder=BASE_DIR)
 CORS(app)
 
 # SSE: connected owner clients (each gets a queue)
@@ -309,7 +310,7 @@ def update_order():
 # Serve HTML
 @app.route("/")
 def index():
-    return send_from_directory(".", "canteeniq.html")
+    return send_from_directory(BASE_DIR, "canteeniq.html")
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
