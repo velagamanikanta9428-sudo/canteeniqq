@@ -1,0 +1,79 @@
+================================================================
+     CanteenIQ — FREE Online Deployment Guide (Render)
+================================================================
+
+After deploying, you get a URL like:
+   https://canteeniq.onrender.com
+
+Both you and your friend open this link from ANYWHERE
+in the world — no same Wi-Fi needed!
+
+================================================================
+STEP 1 — Upload to GitHub (free)
+================================================================
+
+1. Go to https://github.com and create a free account
+   (if you don't have one)
+
+2. Click the "+" icon → "New repository"
+   - Name it: canteeniq
+   - Set to: Public
+   - Click "Create repository"
+
+3. On your computer, open a terminal/command prompt
+   in this folder and run:
+
+     git init
+     git add .
+     git commit -m "CanteenIQ deploy"
+     git branch -M main
+     git remote add origin https://github.com/YOUR_USERNAME/canteeniq.git
+     git push -u origin main
+
+   (Replace YOUR_USERNAME with your GitHub username)
+
+================================================================
+STEP 2 — Deploy on Render (free)
+================================================================
+
+1. Go to https://render.com and sign up with your GitHub account
+
+2. Click "New +" → "Web Service"
+
+3. Connect your GitHub repo "canteeniq"
+
+4. Render auto-detects the settings from render.yaml.
+   Just click "Create Web Service"
+
+5. Wait 2-3 minutes for deployment ✅
+
+6. You get a live URL like:
+      https://canteeniq.onrender.com
+
+================================================================
+STEP 3 — Share with your friend
+================================================================
+
+Send your friend the link. That's it!
+
+  YOU  →  open the link → login as student → place order
+  FRIEND  →  open the same link → login as admin/canteen@2025
+              → gets instant notification 🔔
+
+================================================================
+IMPORTANT NOTES
+================================================================
+
+Free Render plan:
+  - The server "sleeps" after 15 minutes of no traffic
+  - First request after sleep takes ~30 seconds to wake up
+  - After that, it's fast again
+  - For a school canteen this is totally fine!
+
+Data storage:
+  - On Render, users.json and orders.json are stored
+    temporarily. They reset if the server restarts.
+  - For permanent storage, consider upgrading to a paid
+    plan or adding a free database (ask for help!).
+
+================================================================
